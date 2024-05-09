@@ -6,11 +6,12 @@ import { GLTFLoader } from 'three/examples/jsm/Addons.js';
 
 // Canvas
 const canvas = document.querySelector('#main-viewport');
-const renderer = new THREE.WebGLRenderer({ canvas, alpha:true, antialias:true });
+const renderer = new THREE.WebGLRenderer({ canvas, antialias:true });
 renderer.setSize(canvas.clientWidth, canvas.clientHeight);
 renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 renderer.shadowMap.autoUpdate = true;
+
 
 // Scene
 const scene = new THREE.Scene();
@@ -35,13 +36,16 @@ const grid = new THREE.GridHelper(100, 100, '#FFFFFF', '#BBBBBB');
 grid.position.set(0, 0, 0);
 scene.add(grid);
 
-// RESIZE WINDOW 
-function onWindowResize() {
+function WindowResize() {
     main_camera.aspect = canvas.clientWidth / canvas.clientHeight;
     main_camera.updateProjectionMatrix();
     renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+    console.log(canvas.clientWidth)
 }
-  
+window.addEventListener('resize', WindowResize);
+WindowResize();
+
+
 // MAIN FUNC
 function main() {
     requestAnimationFrame(main);
@@ -49,6 +53,4 @@ function main() {
     controls.update();
 }
 
-window.addEventListener('resize', onWindowResize);
-onWindowResize();
 main();
