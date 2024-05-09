@@ -4,10 +4,43 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css">
     <title>Steganografi 3D</title>
   </head>
-
   <body>
+
+    <div class="container">
+      <div class="content">
+        <div class="sidebar">
+          <div class="inputFrame">
+            <h2>3D Steganografi</h2>
+            <input type="text" name="plaintext" class="sidePlaintext">
+            <input type="text" name="generatedkey" class="sideKey" readonly>
+            <button class="sideButton">Encrypt</button>
+          </div>
+        </div>
+
+        <div class="threeDContainer">
+          <div class="threeDFrame">
+            <canvas>
+
+            </canvas>
+          </div>
+
+          <div class="decryptbar">
+            <div class="output">
+              <input class="outputplaintext" type="text" readonly name="outputplaintext">
+            </div>
+
+            <div class="inputkey">
+              <input class="keyInput" type="text" name="key">
+              <button class="decryptButton">Decrypt</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script type="module" src="/main.js"></script>
   </body>
 </html>

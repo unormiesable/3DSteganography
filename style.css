@@ -1,0 +1,108 @@
+/* Container */
+.container {
+    display: flex;
+    border: 1px solid black;
+    height: 98vh;
+    width: 99vw;
+}
+
+    /* Content */
+    .content {
+        display: flex;
+        width: 100%;
+        border: 1px solid blue;
+    }
+
+        /* Sidebar */
+        .sidebar {
+            border: 1px solid black;
+            width: 20%;
+        }
+
+            /* InputFrame */
+            .inputFrame {
+                text-align: center;
+                display: flex;
+                margin-left: 1em;
+                margin-right: 1em;
+                padding: 1em;
+                flex-direction: column;
+            }
+
+            .sidePlaintext {
+                margin-bottom: 1em;
+                height: 30em;
+                border-radius: 5px;
+            }
+
+            .sideKey {
+                margin-top: 1em;
+                margin-bottom: 1em;
+                border-radius: 5px;
+                height: 2em;
+            }
+
+            .sideButton {
+                margin-top: 1em;
+                height: 2em;
+                border-radius: 5px;
+            }
+            /* InputFrame */
+        /* Sidebar */
+
+        /* 3D Container */
+        .threeDContainer {
+            width: 80%;
+        }
+
+            /* 3D Frame */
+            .threeDFrame {
+                border: 1px solid black;
+                height: 79%;
+            }
+
+            canvas {
+                height: 100%;
+                width: 100%;
+            }
+            /* 3D Frame */
+
+            /* Decrypt Bar */
+            .decryptbar {
+                height: 21%;
+                display: flex;
+            }
+
+            .output {
+                margin: 1em;
+                width: 75%;
+                height: 80%;
+            }
+
+            .outputplaintext {
+                width: 99%;
+                height: 99%;
+            }
+
+                /* Input Key */
+                .inputkey {
+                    border: 1px solid black;
+                    width: 23%;
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                .keyInput {
+                    margin: 1em;
+                    height: 2em;
+                }
+
+                .decryptButton {
+                    margin: 1em;
+                    height: 2em;
+                }
+
+            /* Decrypt Bar */
+        /* 3D Container */
+    /* Content */
+/* Container */
