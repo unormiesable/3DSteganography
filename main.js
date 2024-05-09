@@ -37,9 +37,9 @@ scene.add(grid);
 
 // RESIZE WINDOW 
 function onWindowResize() {
-    main_camera.aspect = window.innerWidth / window.innerHeight;
+    main_camera.aspect = canvas.clientWidth / canvas.clientHeight;
     main_camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setSize(canvas.clientWidth, canvas.clientHeight);
 }
   
 // MAIN FUNC
