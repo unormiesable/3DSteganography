@@ -37,13 +37,15 @@ grid.position.set(0, 0, 0);
 scene.add(grid);
 
 function WindowResize() {
-    main_camera.aspect = canvas.clientWidth / canvas.clientHeight;
+    const ShoulbeWidth = window.innerWidth * 0.79;
+    const ShouldbeHeight = window.innerHeight * 0.774;
+    main_camera.aspect = ShoulbeWidth / ShouldbeHeight;
     main_camera.updateProjectionMatrix();
-    renderer.setSize(canvas.clientWidth, canvas.clientHeight);
-    console.log(canvas.clientWidth)
+    renderer.setSize(ShoulbeWidth, ShouldbeHeight);
 }
 window.addEventListener('resize', WindowResize);
 WindowResize();
+
 
 
 // MAIN FUNC
