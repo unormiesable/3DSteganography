@@ -1,10 +1,9 @@
 import './style.css'
-
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-import { GLTFLoader } from 'three/examples/jsm/Addons.js';
+import UploadModel from './handler/upload';
 
-// Canvas
+// CANVAS & RENDERER SETUP
 const canvas = document.querySelector('#main-viewport');
 const renderer = new THREE.WebGLRenderer({ canvas, antialias:true });
 renderer.setSize(canvas.clientWidth, canvas.clientHeight);
@@ -12,16 +11,15 @@ renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 renderer.shadowMap.autoUpdate = true;
 
-
-// Scene
+// SCENE
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0xAAAAAA);
 
-// Camera
+// CAMERA
 const main_camera = new THREE.PerspectiveCamera(50, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
 main_camera.position.set(4, 2, 4);
 
-// Controls (Orbit Controls)
+// CAMERA CONTROLS
 const controls = new OrbitControls(main_camera, renderer.domElement);
 controls.enableDamping = true;
 controls.dampingFactor = 0.03;
@@ -36,6 +34,16 @@ const grid = new THREE.GridHelper(100, 100, '#FFFFFF', '#BBBBBB');
 grid.position.set(0, 0, 0);
 scene.add(grid);
 
+// LIGHTINGS
+const direct_light1 = new THREE.DirectionalLight(0xffffff, 7);
+direct_light1.position.set(5, 5, 5);
+const direct_light2 = new THREE.DirectionalLight(0xccccff, 10)
+direct_light2.position.set(-5, -5, -5)
+scene.add(direct_light1, direct_light2);
+
+// LOAD UPLOADED OBJECT 
+var loaded = UploadModel(scene);
+
 function WindowResize() {
     const ShoulbeWidth = window.innerWidth * 0.79;
     const ShouldbeHeight = window.innerHeight * 0.774;
@@ -45,8 +53,6 @@ function WindowResize() {
 }
 window.addEventListener('resize', WindowResize);
 WindowResize();
-
-
 
 // MAIN FUNC
 function main() {
