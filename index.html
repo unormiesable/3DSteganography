@@ -5,6 +5,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
     <title>Steganografi 3D</title>
   </head>
   <body>
@@ -13,18 +17,22 @@
       <div class="content">
         <div class="sidebar">
           <div class="inputFrame">
-            <h2>3D Steganografi</h2>
-            <input type="text" name="plaintext" class="sidePlaintext">
+            <h2 class="poppins">3D Steganografi</h2>
+            <textarea draggable="false" type="text" name="plaintext" class="sidePlaintext"></textarea>
             <input type="text" name="generatedkey" class="sideKey" readonly>
-            <button class="sideButton">Encrypt</button>
+            <button class="sideButton poppins">Encrypt</button>
           </div>
         </div>
 
         <div class="threeDContainer">
+            <input class="fa-solid fa-upload fa-2xl upimage" type="file" name="image">
           <div class="threeDFrame">
             <canvas>
 
             </canvas>
+            <a class="downimage" href="3Dobject.anu" download="3Dobject">
+              <i class="fa-solid fa-download fa-2xl"></i>
+            </a>
           </div>
 
           <div class="decryptbar">
@@ -34,7 +42,7 @@
 
             <div class="inputkey">
               <input class="keyInput" type="text" name="key">
-              <button class="decryptButton">Decrypt</button>
+              <button class="decryptButton poppins">Decrypt</button>
             </div>
           </div>
         </div>
@@ -42,5 +50,6 @@
     </div>
 
     <script type="module" src="/main.js"></script>
+    <script src="https://kit.fontawesome.com/379b6656cc.js" crossorigin="anonymous"></script>
   </body>
 </html>
