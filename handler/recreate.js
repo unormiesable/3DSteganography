@@ -9,5 +9,6 @@ export function CreateModel(vert, ind, material, scene){
     geometry.setIndex(new THREE.BufferAttribute(indicesArray, 1));
     geometry.computeVertexNormals();
     var object = new THREE.Mesh(geometry, material);
+    object.name = 'Loaded Model';
     scene.add(object);
 }
