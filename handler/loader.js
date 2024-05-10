@@ -11,5 +11,8 @@ export function LoadModel(url, scene) {
         gltf.scene.position.set(0, 0, 0);
         gltf.scene.name = 'Loaded Model';
         scene.add(gltf.scene);
+
+        const json = gltf.parser.json;
+        console.log(json);
     });
 }
