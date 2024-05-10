@@ -18,8 +18,8 @@
         <div class="sidebar">
           <div class="inputFrame">
             <h2 class="poppins">3D Steganografi</h2>
-            <textarea draggable="false" type="text" name="plaintext" class="sidePlaintext" id="plaintextinput"></textarea>
-            <input type="text" name="generatedkey" class="sideKey" readonly>
+            <textarea draggable="false" type="text" name="plaintext" class="sidePlaintext" id="plaintextinput" placeholder="Input Plaintext"></textarea>
+            <input type="text" name="generatedkey" class="sideKey" placeholder="Generated Key" readonly>
             <button class="sideButton poppins" onclick="convertToBinary()">Encrypt</button>
           </div>
         </div>
@@ -37,11 +37,11 @@
 
           <div class="decryptbar">
             <div class="output">
-              <input class="outputplaintext" type="text" readonly name="outputplaintext">
+              <input class="outputplaintext" type="text" readonly name="outputplaintext" placeholder="Output Plaintext">
             </div>
 
             <div class="inputkey">
-              <input class="keyInput" type="text" name="key">
+              <input class="keyInput" type="text" name="key" placeholder="Input Key">
               <button class="decryptButton poppins">Decrypt</button>
             </div>
           </div>
