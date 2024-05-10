@@ -8,7 +8,7 @@ export function extractVertices(gltf) {
             const geometry = child.geometry;
             const positions = geometry.attributes.position.array;
 
-            // COOR
+            // VERTEX
             for (let i = 0; i < positions.length; i += 3) {
                 const x = parseFloat(positions[i]).toFixed(3);
                 const y = parseFloat(positions[i + 1]).toFixed(3);
@@ -30,7 +30,7 @@ export function extractIndices(gltf) {
             const geometry = child.geometry;
             const idx = geometry.index.array;
 
-            // IND
+            // INDEX
             for (let i = 0; i < idx.length; i += 3) {
                 const index1 = idx[i];
                 const index2 = idx[i + 1];

@@ -20,7 +20,7 @@
             <h2 class="poppins">3D Steganografi</h2>
             <textarea draggable="false" type="text" name="plaintext" class="sidePlaintext" id="plaintextinput" placeholder="Input Plaintext"></textarea>
             <input type="text" name="generatedkey" class="sideKey" placeholder="Generated Key" readonly>
-            <button class="sideButton poppins" onclick="convertToBinary()">Encrypt</button>
+            <button id="Encrypt-Button" class="sideButton poppins">Encrypt</button>
           </div>
         </div>
 
@@ -30,7 +30,7 @@
             <canvas id="main-viewport">
               
             </canvas>
-            <a class="downimage" href="3Dobject.anu" download="3Dobject">
+            <a id="downloadButton" class="downimage" href="#">
               <i class="fa-solid fa-download fa-2xl"></i>
             </a>
           </div>
@@ -52,7 +52,8 @@
     <script type="module" src="/main.js"></script>
     <script type="module" src="./handler/upload.js"></script>
     <script type="module" src="./handler/loader.js"></script>
-    <script src="./handler/text.js"></script>
+    <script type="module" src="./handler/text.js"></script>
+    <script type="module" src="/handler/downloader.js"></script>
     <script src="https://kit.fontawesome.com/379b6656cc.js" crossorigin="anonymous"></script>
   </body>
 </html>

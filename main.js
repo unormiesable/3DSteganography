@@ -2,6 +2,8 @@ import './style.css'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import UploadModel from './handler/upload';
+import DownloadModel from './handler/downloader';
+import { convertToBinary } from './handler/text';
 
 // CANVAS & RENDERER SETUP
 const canvas = document.querySelector('#main-viewport');
@@ -44,6 +46,17 @@ scene.add(direct_light1, direct_light2);
 // LOAD UPLOADED OBJECT 
 const main_material = new THREE.MeshStandardMaterial({ color:0xcccccc});
 var loaded = UploadModel(scene, main_material);
+
+// ENCRYPT BUTTON
+document.getElementById("Encrypt-Button").addEventListener('click', function(){
+    convertToBinary(scene);
+})
+
+// DOWNLOAD MODEL
+document.getElementById('downloadButton').addEventListener('click', function() {
+    DownloadModel(scene);
+});
+
 
 function WindowResize() {
     const ShoulbeWidth = window.innerWidth * 0.79;
