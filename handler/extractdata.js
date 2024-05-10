@@ -10,7 +10,10 @@ export function extractVertices(gltf) {
 
             // COOR
             for (let i = 0; i < positions.length; i += 3) {
-                vertices.push(positions[i], positions[i + 1], positions[i + 2]);
+                const x = parseFloat(positions[i]).toFixed(3);
+                const y = parseFloat(positions[i + 1]).toFixed(3);
+                const z = parseFloat(positions[i + 2]).toFixed(3);
+                vertices.push(parseFloat(x), parseFloat(y), parseFloat(z));
             }
         }
     });

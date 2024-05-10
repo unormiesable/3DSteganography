@@ -18,7 +18,8 @@ function convertToBinary() {
         var paddedSegments = segments.map(segment => segment.padStart(3, '0')); 
         segmentedBinaryArray.push(...paddedSegments); 
     }
-
     var decimalArray = segmentedBinaryArray.map(segment => parseInt(segment, 2));
-    console.log(decimalArray);
+    var dividedBySevenArray = decimalArray.map(value => (value / 7).toFixed(3));
+    
+    console.log(dividedBySevenArray);
 }
