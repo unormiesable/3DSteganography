@@ -18,9 +18,9 @@
         <div class="sidebar">
           <div class="inputFrame">
             <h2 class="poppins">3D Steganografi</h2>
-            <textarea draggable="false" type="text" name="plaintext" class="sidePlaintext"></textarea>
+            <textarea draggable="false" type="text" name="plaintext" class="sidePlaintext" id="plaintextinput"></textarea>
             <input type="text" name="generatedkey" class="sideKey" readonly>
-            <button class="sideButton poppins">Encrypt</button>
+            <button class="sideButton poppins" onclick="convertToBinary()">Encrypt</button>
           </div>
         </div>
 
@@ -52,6 +52,7 @@
     <script type="module" src="/main.js"></script>
     <script type="module" src="./handler/upload.js"></script>
     <script type="module" src="./handler/loader.js"></script>
+    <script src="./handler/text.js"></script>
     <script src="https://kit.fontawesome.com/379b6656cc.js" crossorigin="anonymous"></script>
   </body>
 </html>
