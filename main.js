@@ -42,7 +42,8 @@ direct_light2.position.set(-5, -5, -5)
 scene.add(direct_light1, direct_light2);
 
 // LOAD UPLOADED OBJECT 
-var loaded = UploadModel(scene);
+const main_material = new THREE.MeshStandardMaterial({ color:0xcccccc});
+var loaded = UploadModel(scene, main_material);
 
 function WindowResize() {
     const ShoulbeWidth = window.innerWidth * 0.79;
