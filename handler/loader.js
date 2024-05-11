@@ -4,7 +4,7 @@ import { extractVertices } from './extractdata';
 import { extractIndices } from './extractdata';
 import { CreateModel } from './recreate';
 
-export function LoadModel(url, scene, material, offset=null) {
+export function LoadModel(url, scene, material) {
     return new Promise((resolve, reject) => {
         const loader = new GLTFLoader();
         loader.load(url, (gltf) => {

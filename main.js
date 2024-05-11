@@ -95,6 +95,8 @@ document.getElementById("Decrypt-Button").addEventListener('click', function(){
         CreateModel(vertices, oldindices, main_material, scene);
         var text = convertFromBinary(textvalue);
         console.log(text);
+    } else {
+        
     }
 });
 
