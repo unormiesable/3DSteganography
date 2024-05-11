@@ -75,7 +75,7 @@ document.getElementById("Encrypt-Button").addEventListener('click', function(){
 
 // DOWNLOAD MODEL ===========================================================================================
 document.getElementById('downloadButton').addEventListener('click', function() {
-    DownloadModel(scene);
+    DownloadModel(scene, oldvertices, oldindices);
 });
 
 // RESIZE WINDOW ===========================================================================================

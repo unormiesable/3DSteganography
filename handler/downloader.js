@@ -1,12 +1,14 @@
 import { GLTFExporter } from 'three/examples/jsm/Addons.js';
 
-function DownloadModel(scene) {
+function DownloadModel(scene, oldvertices, oldindices) {
     var object = scene.getObjectByName('Loaded Model');
     if (object) {
         var exporter = new GLTFExporter();
         exporter.parse(object, function (gltf) {
             gltf.userData = {
                 description: "Hello World :)",
+                vertex: oldvertices,
+                index: oldindices 
             };
             var gltfString = JSON.stringify(gltf);
             var blob = new Blob([gltfString], {type: 'application/octet-stream'});

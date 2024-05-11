@@ -19,9 +19,8 @@ export function LoadModel(url, scene, material, offset=null) {
             const indices = extractIndices(gltf);
 
             CreateModel(vertices, indices, material, scene)
-
+            
             const json = gltf.parser.json;
-            console.log(json);
 
             resolve({ vertices, indices });
         }, undefined, reject);
