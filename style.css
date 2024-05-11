@@ -145,6 +145,7 @@
                 }
                 /* Input Key */
                     .inputkey {
+                        justify-content: center;
                         border: 1px solid black;
                         width: 23%;
                         display: flex;
