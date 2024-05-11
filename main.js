@@ -45,7 +45,16 @@ scene.add(direct_light1, direct_light2);
 
 // LOAD UPLOADED OBJECT 
 const main_material = new THREE.MeshStandardMaterial({ color:0xcccccc});
-var loaded = UploadModel(scene, main_material);
+let oldvert;
+UploadModel(scene, main_material)
+    .then(({ vertices, indices }) => {
+        console.log("Vertices:", vertices);
+        console.log("Indices:", indices);
+        oldvert = vertices;
+    })
+    .catch(error => {
+        console.error('Unexpected Error while importing Model', error);
+    });
 
 // ENCRYPT BUTTON
 document.getElementById("Encrypt-Button").addEventListener('click', function(){
