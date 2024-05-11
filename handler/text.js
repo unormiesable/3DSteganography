@@ -28,7 +28,7 @@ export function convertToBinary(scene) {
         var decimalArray = segmentedBinaryArray.map(segment => parseInt(segment, 2));
         var dividedBySevenArray = decimalArray.map(value => (value / 7).toFixed(3));
 
-        console.log(dividedBySevenArray);
+        return dividedBySevenArray;
     } else {
         console.log("Object not Found.");
         alert("Can't Find Object");

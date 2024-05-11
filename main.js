@@ -4,6 +4,9 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import UploadModel from './handler/upload';
 import DownloadModel from './handler/downloader';
 import { convertToBinary } from './handler/text';
+import { DeleteModel } from './handler/deletemodel';
+import { AddArray } from './handler/addition';
+import { CreateModel } from './handler/recreate';
 
 // CANVAS & RENDERER SETUP ===========================================================================================
 const canvas = document.querySelector('#main-viewport');
@@ -44,7 +47,7 @@ direct_light2.position.set(-5, -5, -5)
 scene.add(direct_light1, direct_light2);
 
 // LOAD UPLOADED OBJECT ===========================================================================================
-const main_material = new THREE.MeshStandardMaterial({ color:0xcccccc});
+const main_material = new THREE.MeshStandardMaterial({ color: 0xcccccc, side: THREE.DoubleSide });
 
 let oldvertices;
 let oldindices;
@@ -65,9 +68,16 @@ document.getElementById('FileInput').addEventListener('change', function(event) 
     handleModelUpload(scene, main_material);
 });
 
-// ENRYPT BUTTON HANDLE ===========================================================================================
+// ENCRYPTION HANDLER ===========================================================================================
+
+let newvertices;
+let textvalue;
+
 document.getElementById("Encrypt-Button").addEventListener('click', function(){
-    convertToBinary(scene);
+    textvalue = convertToBinary(scene);
+    DeleteModel(scene);
+    newvertices = AddArray(oldvertices, textvalue);
+    CreateModel(newvertices, oldindices, main_material, scene)
 });
 
 // DOWNLOAD MODEL ===========================================================================================
