@@ -15,14 +15,22 @@ export function LoadModel(url, scene, material) {
             gltf.scene.position.set(0, 0, 0);
             gltf.scene.name = 'Loaded Model';
 
+            const userData = gltf.parser.json.userData;
+            let datavertex = null;
+
+            if (userData && userData.vertex) {
+                console.log("Vertex found");
+                datavertex = userData.vertex;
+            } else {
+                console.log("Vertex not found");
+            }
+
             const vertices = extractVertices(gltf);
-            const indices = extractIndices(gltf);
+            const indices = extractIndices(gltf);            
 
-            CreateModel(vertices, indices, material, scene)
-            
-            const json = gltf.parser.json;
+            CreateModel(vertices, indices, material, scene);
 
-            resolve({ vertices, indices });
+            resolve({ vertices, indices, datavertex });
         }, undefined, reject);
     });
 }

@@ -54,11 +54,14 @@ const main_material = new THREE.MeshStandardMaterial({ color: 0xcccccc, side: TH
 
 let oldvertices;
 let oldindices;
+let datavertexfromloader;
+
 function handleModelUpload(scene, main_material) {
     UploadModel(scene, main_material)
-        .then(({ vertices, indices }) => {
+        .then(({ vertices, indices, datavertex }) => {
             oldvertices = vertices;
             oldindices = indices;
+            datavertexfromloader = datavertex;
         })
         .catch(error => {
             console.error('Unexpected Error while importing Model', error);
@@ -89,17 +92,21 @@ document.getElementById("Encrypt-Button").addEventListener('click', function(){
 
 // DECRYPTION HANDLER ===========================================================================================
 document.getElementById("Decrypt-Button").addEventListener('click', function(){
+    var outputField = document.querySelector('.outputplaintext');
     if (Decrypt(newvertices)){
         var vertices = SubtractArray(newvertices, textvalue);
         DeleteModel(scene);
         CreateModel(vertices, oldindices, main_material, scene);
         var text = convertFromBinary(textvalue);
-        console.log(text);
+        outputField.value = String(text).trim();
     } else {
-        
+        var vertices = SubtractArray(oldvertices, datavertexfromloader);
+        DeleteModel(scene);
+        CreateModel(datavertexfromloader, oldindices, main_material, scene);
+        var text = convertFromBinary(vertices);
+        outputField.value = String(text).trim();
     }
 });
-
 
 // DOWNLOAD MODEL ===========================================================================================
 document.getElementById('downloadButton').addEventListener('click', function() {

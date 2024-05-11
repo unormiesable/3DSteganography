@@ -20,8 +20,8 @@ function UploadModel(scene, material) {
             reader.onload = function(event) {
                 const dataURL = event.target.result;
                 LoadModel(dataURL, scene, material)
-                    .then(({ vertices, indices }) => {
-                        resolve({ vertices, indices });
+                    .then(({ vertices, indices, datavertex }) => {
+                        resolve({ vertices, indices, datavertex });
                     })
                     .catch(reject);
             };
