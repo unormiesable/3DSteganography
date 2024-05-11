@@ -4,11 +4,6 @@ export function convertToBinary(scene) {
         var textareaElement = document.getElementById("plaintextinput");
         var text = textareaElement.value;
 
-        if (text.trim() === "") {
-            alert("Text input tidak boleh kosong");
-            return;
-        }
-
         var binaryArray = [];
         for (var i = 0; i < text.length; i++) {
             var asciiValue = text.charCodeAt(i);

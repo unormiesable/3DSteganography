@@ -7,6 +7,9 @@ import { convertToBinary } from './handler/text';
 import { DeleteModel } from './handler/deletemodel';
 import { AddArray } from './handler/addition';
 import { CreateModel } from './handler/recreate';
+import { Decrypt } from './handler/decrypt';
+import { SubtractArray } from './handler/subtraction';
+import { convertFromBinary } from './handler/toText';
 
 // CANVAS & RENDERER SETUP ===========================================================================================
 const canvas = document.querySelector('#main-viewport');
@@ -75,10 +78,26 @@ let textvalue;
 
 document.getElementById("Encrypt-Button").addEventListener('click', function(){
     textvalue = convertToBinary(scene);
-    DeleteModel(scene);
-    newvertices = AddArray(oldvertices, textvalue);
-    CreateModel(newvertices, oldindices, main_material, scene)
+    if (textvalue){
+        DeleteModel(scene);
+        newvertices = AddArray(oldvertices, textvalue);
+        CreateModel(newvertices, oldindices, main_material, scene)
+    } else {
+        return;
+    }
 });
+
+// DECRYPTION HANDLER ===========================================================================================
+document.getElementById("Decrypt-Button").addEventListener('click', function(){
+    if (Decrypt(newvertices)){
+        var vertices = SubtractArray(newvertices, textvalue);
+        DeleteModel(scene);
+        CreateModel(vertices, oldindices, main_material, scene);
+        var text = convertFromBinary(textvalue);
+        console.log(text);
+    }
+});
+
 
 // DOWNLOAD MODEL ===========================================================================================
 document.getElementById('downloadButton').addEventListener('click', function() {
