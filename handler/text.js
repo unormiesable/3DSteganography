@@ -21,7 +21,7 @@ export function convertToBinary(scene) {
             segmentedBinaryArray.push(...paddedSegments); 
         }
         var decimalArray = segmentedBinaryArray.map(segment => parseInt(segment, 2));
-        var dividedBySevenArray = decimalArray.map(value => (value / 7).toFixed(3));
+        var dividedBySevenArray = decimalArray.map(value => (value / 70).toFixed(3));
 
         return dividedBySevenArray;
     } else {

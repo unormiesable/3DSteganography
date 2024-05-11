@@ -1,5 +1,5 @@
 export function convertFromBinary(decimalArray) {
-    const multiplied = decimalArray.map(num => Math.round(num * 7));
+    const multiplied = decimalArray.map(num => Math.round(num * 70));
 
     const binaryArray = multiplied.map(num => {
         let binary = num.toString(2);
