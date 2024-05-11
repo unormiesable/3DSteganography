@@ -3,8 +3,13 @@ export function convertToBinary(scene) {
     if (object) {
         var textareaElement = document.getElementById("plaintextinput");
         var text = textareaElement.value;
-        var binaryArray = [];
 
+        if (text.trim() === "") {
+            alert("Text input tidak boleh kosong");
+            return;
+        }
+
+        var binaryArray = [];
         for (var i = 0; i < text.length; i++) {
             var asciiValue = text.charCodeAt(i);
             var binary = asciiValue.toString(2);
@@ -24,8 +29,7 @@ export function convertToBinary(scene) {
         var dividedBySevenArray = decimalArray.map(value => (value / 7).toFixed(3));
 
         console.log(dividedBySevenArray);
-    }
-    else {
+    } else {
         console.log("Object not Found.");
         alert("Can't Find Object");
     }

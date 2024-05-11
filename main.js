@@ -68,7 +68,6 @@ document.getElementById('FileInput').addEventListener('change', function(event) 
 // ENRYPT BUTTON HANDLE ===========================================================================================
 document.getElementById("Encrypt-Button").addEventListener('click', function(){
     convertToBinary(scene);
-    console.log(oldvertices);
 });
 
 // DOWNLOAD MODEL ===========================================================================================
