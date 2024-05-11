@@ -20,7 +20,12 @@ export function convertFromBinary(decimalArray) {
         }
     }).filter(Boolean).join('');
 
-    const text = resultArray.match(/.{1,8}/g).map(binary => String.fromCharCode(parseInt(binary, 2))).join('');
+    const text = resultArray
+    .match(/.{1,8}/g)
+    .map(binary => String.fromCharCode(parseInt(binary, 2)))
+    .join('')
+    .replace(/[^a-zA-Z0-9!"#$%&'()*+,\-.\/:;<=>?@[\\\]^_`{|}~\s]/g, '');
+
     return text;
 }
 
