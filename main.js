@@ -51,8 +51,6 @@ let oldindices;
 function handleModelUpload(scene, main_material) {
     UploadModel(scene, main_material)
         .then(({ vertices, indices }) => {
-            console.log("Vertices:", vertices);
-            console.log("Indices:", indices);
             oldvertices = vertices;
             oldindices = indices;
         })
