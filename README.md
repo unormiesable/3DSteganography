@@ -11,6 +11,7 @@ Tujuan utama dari project ini adalah untuk menyelesaikan tugas keamanan informas
 
 ## Fitur
 1. Menyematkan pesan rahasia dalam model-model 3D.
+1. Mendownload model 3D yang sudah memiliki pesan rahasia
 1. Mengekstrak pesan tersembunyi dari model-model 3D.
 1. Visualisasi dan demonstrasi 3D.
 
