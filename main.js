@@ -134,7 +134,7 @@ function resizeRendererToDisplaySize(renderer) {
 function windowResize() {
     const article = document.querySelector('.container-fluid');
     const aspectRatio = 16 / 9;
-    const width = article.clientWidth * 0.8;
+    const width = article.clientWidth * 0.95;
     const height = width / aspectRatio;
     renderer.setSize(width, height);
     main_camera.aspect = aspectRatio;
