@@ -21,7 +21,11 @@ renderer.shadowMap.autoUpdate = true;
 
 // SCENE ===========================================================================================
 const scene = new THREE.Scene();
-scene.background = new THREE.Color(0xAAAAAA);
+const bg = 0x333344;
+scene.background = new THREE.Color(bg);
+
+scene.fog = new THREE.Fog(bg, 15, 30);
+
 
 // CAMERA ===========================================================================================
 const main_camera = new THREE.PerspectiveCamera(50, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
@@ -38,7 +42,7 @@ controls.maxDistance = 30;
 controls.minDistance = 1;
 
 // GRID ===========================================================================================
-const grid = new THREE.GridHelper(100, 100, '#FFFFFF', '#BBBBBB');
+const grid = new THREE.GridHelper(100, 100, '#AAAAAA', '#555555');
 grid.position.set(0, 0, 0);
 scene.add(grid);
 
@@ -113,17 +117,31 @@ document.getElementById('downloadButton').addEventListener('click', function() {
     DownloadModel(scene, oldvertices, oldindices);
 });
 
-// RESIZE WINDOW ===========================================================================================
-function WindowResize() {
-    const ShoulbeWidth = window.innerWidth * 0.79;
-    const ShouldbeHeight = window.innerHeight * 0.774;
-    main_camera.aspect = ShoulbeWidth / ShouldbeHeight;
-    main_camera.updateProjectionMatrix();
-    renderer.setSize(ShoulbeWidth, ShouldbeHeight);
+// RESIZE =============================================================================================
+function resizeRendererToDisplaySize(renderer) {
+    const canvas = renderer.domElement;
+    const width = canvas.clientWidth;
+    const height = canvas.clientHeight;
+    const needResize = canvas.width !== width || canvas.height !== height;
+    if (needResize) {
+        renderer.setSize(width, height, false);
+        main_camera.aspect = width / height;
+        main_camera.updateProjectionMatrix();
+    }
 }
-window.addEventListener('resize', WindowResize);
-WindowResize();
 
+// RESIZE =============================================================================================
+function windowResize() {
+    const article = document.querySelector('.container-fluid');
+    const aspectRatio = 16 / 9;
+    const width = article.clientWidth * 0.8;
+    const height = width / aspectRatio;
+    renderer.setSize(width, height);
+    main_camera.aspect = aspectRatio;
+    main_camera.updateProjectionMatrix();
+}
+
+window.addEventListener('resize', windowResize);
 // MAIN FUNC ===========================================================================================
 function main() {
     requestAnimationFrame(main);

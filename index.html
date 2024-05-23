@@ -5,47 +5,64 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.indigo.min.css"/>
     <title>Steganografi 3D</title>
   </head>
   <body>
 
-    <div class="container">
-      <div class="content">
-        <div class="sidebar">
-          <div class="inputFrame">
-            <h2 class="poppins">3D Steganografi</h2>
-            <textarea draggable="false" type="text" name="plaintext" class="sidePlaintext" id="plaintextinput" placeholder="Input Plaintext"></textarea>
-            <button id="Encrypt-Button" class="sideButton poppins">Encrypt</button>
-          </div>
-        </div>
+    <main class="container">
+      <div class="container">
+        <div class="content">
 
-        <div class="threeDContainer">
-            <input class="fa-solid fa-upload fa-2xl upimage" type="file" name="image" id="FileInput">
-          <div class="threeDFrame">
-            <canvas id="main-viewport">
-              
-            </canvas>
-            <a id="downloadButton" class="downimage" href="#">
-              <i class="fa-solid fa-download fa-2xl"></i>
-            </a>
-          </div>
+          <article class="container-fluid">
+            <h1> 3D OBJECT STEGANOGRAPHY</h1>
+          </article>
+  
+          <div class="container">
+            
+            <div class="container">
 
-          <div class="decryptbar">
-            <div class="output">
-              <input class="outputplaintext" type="text" readonly name="outputplaintext" placeholder="Output Plaintext">
+              <article class="container" style="height: max-content; padding: 10px;">
+                <div class="canvas-container">
+                  <canvas id="main-viewport" class="three">
+                  </canvas>
+                </div>
+
+                <article class="grid" style="margin: 0;">
+                  <button id="fileButton">Upload</button>
+                  <input type="file" name="image" id="FileInput" style="display: none;">
+                  <button id="downloadButton" class='outline' href="#"> Download</button>
+                </article>
+
+              </article>
+
             </div>
 
-            <div class="inputkey">
-              <button id="Decrypt-Button" class="decryptButton poppins">Decrypt</button>
-            </div>
+            <article class="grid">
+              <hgroup>
+                <div class="inputFrame">
+                    <input draggable="false" type="text" name="plaintext" class="sidePlaintext" id="plaintextinput" placeholder="Input Plaintext" autocomplete="off"></input>
+                </div>
+    
+                <div class="grid">
+                  <button id="Encrypt-Button" class="sideButton poppins">Encrypt</button>
+                </div>
+              </hgroup>
+
+              <div class="decryptbar">
+                <div class="output">
+                  <input class="outputplaintext" type="text" readonly name="outputplaintext" placeholder="Output Plaintext"></input>
+                </div>
+                
+                <div class="grid">
+                  <button id="Decrypt-Button" class="decryptButton poppins">Decrypt</button>
+                </div>
+            </article>
+
           </div>
         </div>
       </div>
-    </div>
+    </main>
 
     <script type="module" src="/main.js"></script>
     <script type="module" src="./handler/upload.js"></script>
@@ -56,5 +73,12 @@
     <script type="module" src="./handler/addition.js" ></script>
     <script type="module" src="./handler/decrypt.js" ></script>
     <script src="https://kit.fontawesome.com/379b6656cc.js" crossorigin="anonymous"></script>
+
+    <script>
+      document.getElementById('fileButton').addEventListener('click', function() {
+        document.getElementById('FileInput').click();
+      });
+    </script>
+
   </body>
 </html>
