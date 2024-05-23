@@ -15,7 +15,15 @@
         <div class="content">
 
           <article class="container-fluid">
-            <h1> 3D OBJECT STEGANOGRAPHY</h1>
+            <div class="grid">
+              <hgroup>
+                <h1> 3D OBJECT STEGANOGRAPHY</h1>
+              </hgroup>
+             
+              <div style="justify-self: flex-end;">
+                <button class="gh" id="github"> Github</button>
+              </div>
+            </div>
           </article>
   
           <div class="container">
@@ -77,6 +85,10 @@
     <script>
       document.getElementById('fileButton').addEventListener('click', function() {
         document.getElementById('FileInput').click();
+      });
+
+      document.getElementById('github').addEventListener('click', function(){
+        window.open('https://github.com/unormiesable/3DSteganography', '_blank');
       });
     </script>
 

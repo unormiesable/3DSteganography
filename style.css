@@ -11,3 +11,28 @@
 .three:active{
 	cursor: grabbing;
 }
+
+.grid button.outline {
+	padding: 5px 10px;
+	background-color: transparent;
+	cursor: pointer;
+	transition: all ease-in-out 0.2s;
+}
+  
+.grid button.outline:hover {
+	background-color: #524ED2;
+    border: none;
+	color: white;
+}
+
+.gh {
+    transition: all ease-in-out 0.2s;
+}
+
+.gh:hover{
+    scale: 1.05;
+}
+
+.gh:active{
+    scale: 0.9;
+}
